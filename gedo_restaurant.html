@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مشويات جدو — أجمد شوي في مصر</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --red: #8B1A1A;
+    --red-deep: #5C0F0F;
+    --red-bright: #C0392B;
+    --gold: #D4A017;
+    --gold-light: #F0C040;
+    --cream: #FAF3E0;
+    --dark: #1A0A0A;
+    --dark2: #240E0E;
+    --dark3: #2E1212;
+    --text: #FAF3E0;
+    --text-muted: #C4A882;
+    --charcoal: #3D1A1A;
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Cairo', sans-serif;
+    background: var(--dark);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ===== NAV ===== */
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 3rem;
+    position: sticky;
+    top: 0;
+    z-index: 200;
+    background: rgba(26,10,10,0.96);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(212,160,23,0.2);
+  }
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .nav-logo img {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: 2px solid var(--gold);
+    object-fit: cover;
+    background: var(--red-deep);
+  }
+  .nav-logo-text {
+    font-family: 'Tajawal', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .nav-logo-sub {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    font-weight: 400;
+  }
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+  .nav-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-order-btn {
+    background: var(--gold);
+    color: var(--dark);
+    border: none;
+    padding: 0.65rem 1.5rem;
+    border-radius: 4px;
+    font-family: 'Cairo', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .nav-order-btn:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+  /* ===== HERO ===== */
+  .hero {
+    position: relative;
+    min-height: 92vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: url('https://images.unsplash.com/photo-1544025162-d76694265947?w=1800&q=80') center/cover no-repeat;
+    filter: brightness(0.25) saturate(0.8);
+    transform: scale(1.05);
+    animation: heroZoom 20s ease-in-out infinite alternate;
+  }
+  @keyframes heroZoom {
+    from { transform: scale(1.05); }
+    to   { transform: scale(1.12); }
+  }
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(92,15,15,0.85) 0%, rgba(26,10,10,0.6) 50%, rgba(26,10,10,0.9) 100%);
+  }
+  .hero-content {
+    position: relative;
+    padding: 0 3rem;
+    max-width: 700px;
+    animation: fadeUp 1s ease both;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(212,160,23,0.15);
+    border: 1px solid rgba(212,160,23,0.5);
+    color: var(--gold-light);
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.4rem 1.2rem;
+    border-radius: 30px;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.03em;
+  }
+  .hero h1 {
+    font-family: 'Tajawal', sans-serif;
+    font-size: clamp(2.8rem, 6vw, 5.5rem);
+    font-weight: 900;
+    line-height: 1.05;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+  }
+  .hero h1 span { color: var(--gold); }
+  .hero-tagline {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--red-bright);
+    margin-bottom: 1.2rem;
+    letter-spacing: 0.02em;
+  }
+  .hero p {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+    max-width: 520px;
+    margin-bottom: 2.5rem;
+  }
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .btn-red {
+    background: var(--red-bright);
+    color: white;
+    border: none;
+    padding: 0.9rem 2rem;
+    border-radius: 4px;
+    font-family: 'Cairo', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .btn-red:hover { background: #E74C3C; transform: translateY(-2px); }
+  .btn-ghost {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid rgba(250,243,224,0.3);
+    padding: 0.9rem 2rem;
+    border-radius: 4px;
+    font-family: 'Cairo', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* hero rating pill */
+  .hero-rating {
+    position: absolute;
+    bottom: 3rem;
+    left: 3rem;
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    animation: fadeUp 1s 0.3s ease both;
+    opacity: 0;
+    animation-fill-mode: forwards;
+  }
+  .rating-pill {
+    background: rgba(212,160,23,0.12);
+    border: 1px solid rgba(212,160,23,0.3);
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    text-align: center;
+  }
+  .rating-big { font-family: 'Tajawal', sans-serif; font-size: 2.5rem; font-weight: 900; color: var(--gold); line-height: 1; display: block; }
+  .rating-stars { color: var(--gold); font-size: 1rem; display: block; margin: 0.2rem 0; }
+  .rating-count { font-size: 0.75rem; color: var(--text-muted); }
+  .hero-divider { width: 1px; height: 60px; background: rgba(212,160,23,0.2); }
+  .hero-stat { text-align: center; }
+  .stat-val { font-family: 'Tajawal', sans-serif; font-size: 1.8rem; font-weight: 900; color: var(--text); display: block; }
+  .stat-lbl { font-size: 0.75rem; color: var(--text-muted); }
+
+  /* ===== SECTION BASE ===== */
+  section { padding: 5rem 3rem; }
+  .sec-label { font-size: 0.75rem; color: var(--gold); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.6rem; }
+  .sec-title {
+    font-family: 'Tajawal', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 900;
+    line-height: 1.2;
+    margin-bottom: 3rem;
+  }
+  .sec-title span { color: var(--gold); }
+  .divider { width: 60px; height: 3px; background: var(--gold); margin: 0.8rem 0 2.5rem; border-radius: 2px; }
+
+  /* ===== INFO STRIP ===== */
+  .info-strip {
+    background: var(--red-deep);
+    border-top: 2px solid var(--gold);
+    border-bottom: 2px solid var(--gold);
+    padding: 1.2rem 3rem;
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+  .info-item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--cream);
+  }
+  .info-icon { font-size: 1.1rem; color: var(--gold-light); }
+
+  /* ===== GALLERY ===== */
+  .gallery-section { background: var(--dark2); }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 280px 280px;
+    gap: 4px;
+  }
+  .gallery-item {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  .gallery-item:first-child { grid-row: 1 / 3; }
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease, filter 0.4s;
+    filter: brightness(0.8);
+  }
+  .gallery-item:hover img { transform: scale(1.06); filter: brightness(1); }
+  .gallery-item-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(26,10,10,0.7) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .gallery-item:hover .gallery-item-overlay { opacity: 1; }
+  .gallery-tag {
+    position: absolute;
+    bottom: 0.8rem;
+    right: 0.8rem;
+    background: rgba(212,160,23,0.9);
+    color: var(--dark);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.25rem 0.7rem;
+    border-radius: 3px;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: all 0.3s;
+  }
+  .gallery-item:hover .gallery-tag { opacity: 1; transform: translateY(0); }
+
+  /* ===== MENU ===== */
+  .menu-section { background: var(--dark); }
+  .menu-tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+  }
+  .mtab {
+    padding: 0.6rem 1.4rem;
+    border: 1px solid rgba(212,160,23,0.25);
+    border-radius: 4px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: 'Cairo', sans-serif;
+  }
+  .mtab:hover, .mtab.active { background: var(--gold); color: var(--dark); border-color: var(--gold); }
+  .menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  .menu-card {
+    background: var(--dark2);
+    border: 1px solid rgba(212,160,23,0.12);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .menu-card:hover { border-color: rgba(212,160,23,0.4); transform: translateY(-3px); }
+  .menu-card-body { padding: 1.2rem; }
+  .menu-card-name { font-family: 'Tajawal', sans-serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 0.3rem; }
+  .menu-card-desc { font-size: 0.82rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1rem; }
+  .menu-card-footer { display: flex; justify-content: space-between; align-items: center; }
+  .price { font-family: 'Tajawal', sans-serif; font-size: 1.1rem; font-weight: 900; color: var(--gold); }
+  .price-sub { font-size: 0.7rem; color: var(--text-muted); font-weight: 400; }
+  .popular-badge { font-size: 0.7rem; background: rgba(192,57,43,0.2); border: 1px solid rgba(192,57,43,0.4); color: #E74C3C; padding: 0.2rem 0.6rem; border-radius: 3px; font-weight: 700; }
+
+  /* big promo item */
+  .menu-promo {
+    grid-column: 1 / -1;
+    background: linear-gradient(135deg, var(--red-deep) 0%, var(--dark3) 100%);
+    border: 1px solid rgba(212,160,23,0.3);
+    border-radius: 8px;
+    padding: 1.8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .promo-text .menu-card-name { font-size: 1.5rem; margin-bottom: 0.5rem; }
+  .promo-text .menu-card-desc { font-size: 0.9rem; max-width: 500px; }
+  .promo-price { font-family: 'Tajawal', sans-serif; font-size: 2.5rem; font-weight: 900; color: var(--gold); text-align: center; }
+  .promo-price small { display: block; font-size: 0.75rem; color: var(--text-muted); font-weight: 400; }
+
+  /* ===== REVIEWS ===== */
+  .reviews-section { background: var(--dark2); }
+  .reviews-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 3rem; flex-wrap: wrap; gap: 2rem; }
+  .rating-summary { display: flex; align-items: center; gap: 2rem; }
+  .big-score { font-family: 'Tajawal', sans-serif; font-size: 5rem; font-weight: 900; color: var(--gold); line-height: 1; }
+  .score-details { }
+  .score-stars { color: var(--gold); font-size: 1.4rem; display: block; margin-bottom: 0.3rem; }
+  .score-total { font-size: 0.85rem; color: var(--text-muted); }
+  .score-bars { display: flex; flex-direction: column; gap: 0.5rem; }
+  .bar-row { display: flex; align-items: center; gap: 0.75rem; font-size: 0.8rem; }
+  .bar-label { color: var(--text-muted); min-width: 20px; text-align: center; }
+  .bar-track { flex: 1; height: 6px; background: rgba(255,255,255,0.1); border-radius: 3px; overflow: hidden; min-width: 140px; }
+  .bar-fill { height: 100%; background: var(--gold); border-radius: 3px; transition: width 1s ease; }
+  .reviews-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; }
+  .review-card {
+    background: var(--dark3);
+    border: 1px solid rgba(212,160,23,0.1);
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: border-color 0.3s;
+  }
+  .review-card:hover { border-color: rgba(212,160,23,0.3); }
+  .rev-head { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; }
+  .rev-user { display: flex; align-items: center; gap: 0.75rem; }
+  .rev-avatar {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: var(--red-deep);
+    border: 2px solid rgba(212,160,23,0.3);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Tajawal', sans-serif;
+    font-size: 1.1rem; font-weight: 700;
+    color: var(--gold);
+    flex-shrink: 0;
+  }
+  .rev-name { font-size: 0.95rem; font-weight: 700; }
+  .rev-meta { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.15rem; }
+  .rev-stars { color: var(--gold); font-size: 0.9rem; }
+  .rev-text { font-size: 0.88rem; color: var(--text-muted); line-height: 1.75; }
+  .rev-tag { display: inline-flex; align-items: center; gap: 0.3rem; margin-top: 1rem; background: rgba(212,160,23,0.08); border: 1px solid rgba(212,160,23,0.2); color: var(--gold); font-size: 0.72rem; font-weight: 700; padding: 0.25rem 0.7rem; border-radius: 3px; }
+
+  /* ===== MAP / LOCATION ===== */
+  .location-section { background: var(--dark); }
+  .location-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+  .location-info { display: flex; flex-direction: column; gap: 1.5rem; }
+  .loc-item { display: flex; gap: 1rem; align-items: flex-start; }
+  .loc-icon { font-size: 1.5rem; margin-top: 0.1rem; }
+  .loc-label { font-size: 0.75rem; color: var(--gold); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.25rem; }
+  .loc-value { font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; }
+  .loc-value a { color: var(--gold); text-decoration: none; }
+  .map-frame {
+    border-radius: 8px;
+    overflow: hidden;
+    border: 2px solid rgba(212,160,23,0.2);
+    height: 340px;
+    background: var(--dark3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  .map-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    text-align: center;
+    padding: 2rem;
+  }
+  .map-pin { font-size: 3rem; }
+  .map-placeholder p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; }
+  .map-btn { margin-top: 0.5rem; }
+  iframe.map-iframe { width: 100%; height: 100%; border: none; filter: invert(0.9) hue-rotate(180deg); }
+
+  /* ===== HOURS ===== */
+  .hours-table { width: 100%; border-collapse: collapse; }
+  .hours-table tr { border-bottom: 1px solid rgba(212,160,23,0.08); }
+  .hours-table tr:last-child { border-bottom: none; }
+  .hours-table td { padding: 0.7rem 0; font-size: 0.9rem; }
+  .hours-table td:first-child { color: var(--text-muted); }
+  .hours-table td:last-child { text-align: left; color: var(--text); font-weight: 600; }
+  .open-badge { color: #27AE60; font-weight: 700; }
+  .hours-note { font-size: 0.8rem; color: var(--text-muted); margin-top: 1rem; line-height: 1.6; }
+
+  /* ===== CTA ===== */
+  .cta-section {
+    background: var(--red-deep);
+    border-top: 2px solid var(--gold);
+    text-align: center;
+    padding: 5rem 3rem;
+  }
+  .cta-section h2 { font-family: 'Tajawal', sans-serif; font-size: 2.5rem; font-weight: 900; margin-bottom: 1rem; }
+  .cta-section h2 span { color: var(--gold); }
+  .cta-section p { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 2.5rem; line-height: 1.7; }
+  .cta-phones { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+  .phone-card {
+    background: rgba(0,0,0,0.3);
+    border: 1px solid rgba(212,160,23,0.3);
+    border-radius: 8px;
+    padding: 1.2rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .phone-card:hover { border-color: var(--gold); background: rgba(212,160,23,0.1); }
+  .phone-icon { font-size: 1.4rem; color: var(--gold); }
+  .phone-num { font-family: 'Tajawal', sans-serif; font-size: 1.15rem; font-weight: 700; color: var(--text); letter-spacing: 0.03em; direction: ltr; unicode-bidi: embed; }
+  [dir="ltr"] { direction: ltr; unicode-bidi: embed; }
+  .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; background: var(--dark3); }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: var(--dark);
+    border-top: 1px solid rgba(212,160,23,0.15);
+    padding: 2.5rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+  .footer-logo { font-family: 'Tajawal', sans-serif; font-size: 1.4rem; font-weight: 900; color: var(--gold); }
+  .footer-logo span { font-size: 0.75rem; color: var(--text-muted); display: block; font-weight: 400; }
+  .footer-links { display: flex; gap: 2rem; flex-wrap: wrap; }
+  .footer-links a { font-size: 0.85rem; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-copy { font-size: 0.78rem; color: var(--text-muted); }
+
+  /* ===== ANIMATIONS ===== */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    section { padding: 3rem 1.5rem; }
+    .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+    .gallery-item:first-child { grid-row: auto; }
+    .location-grid { grid-template-columns: 1fr; }
+    .hero-rating { left: 1.5rem; bottom: 1.5rem; gap: 1rem; }
+    .hero-content { padding: 0 1.5rem; }
+    .info-strip { padding: 1rem 1.5rem; gap: 1.5rem; }
+    footer { flex-direction: column; text-align: center; }
+    .reviews-header { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <div style="width:52px;height:52px;border-radius:50%;border:2px solid var(--gold);background:var(--red-deep);display:flex;align-items:center;justify-content:center;font-family:'Tajawal',sans-serif;font-size:1.4rem;font-weight:900;color:var(--gold);">ج</div>
+    <div>
+      <div class="nav-logo-text">مشويات جدو</div>
+      <div class="nav-logo-sub">أجمد شوي في مصر</div>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#gallery">الصور</a></li>
+    <li><a href="#menu">المنيو</a></li>
+    <li><a href="#reviews">التقييمات</a></li>
+    <li><a href="#location">الموقع</a></li>
+  </ul>
+  <a href="tel:+201112547717" class="nav-order-btn">📞 اطلب دلوقتي</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge">✦ مطعم جدو للمشويات — الإسكندرية</div>
+    <h1>أجمد <span>شوي</span><br>في مصر</h1>
+    <div class="hero-tagline">طعم أصيل وجودة لا تُنكر</div>
+    <p>مشويات بالجمر الحقيقي — كفتة، شيش طاووق، سدق، لحمة، حواوشي وصينية جدو الشهيرة. كل حاجة بطعم البيت وكرم الضيافة.</p>
+    <div class="hero-actions">
+      <a href="#menu" class="btn-red">🔥 شوف المنيو</a>
+      <a href="#reviews" class="btn-ghost">⭐ التقييمات</a>
+    </div>
+  </div>
+  <div class="hero-rating">
+    <div class="rating-pill">
+      <span class="rating-big">4.1</span>
+      <span class="rating-stars">★★★★☆</span>
+      <span class="rating-count">217 تقييم</span>
+    </div>
+    <div class="hero-divider"></div>
+    <div class="hero-stat">
+      <span class="stat-val">يومياً</span>
+      <span class="stat-lbl">مفتوح كل يوم</span>
+    </div>
+    <div class="hero-divider"></div>
+    <div class="hero-stat">
+      <span class="stat-val">200–400</span>
+      <span class="stat-lbl">جنيه للفرد</span>
+    </div>
+  </div>
+</section>
+
+<!-- INFO STRIP -->
+<div class="info-strip">
+  <div class="info-item">
+    <span class="info-icon">📍</span>
+    ميدان السيوف، مقابل إشارة المرور، الإسكندرية
+  </div>
+  <div class="info-item">
+    <span class="info-icon">🕐</span>
+    مفتوح يومياً من 11 الصبح لـ5 الفجر
+  </div>
+  <div class="info-item">
+    <span class="info-icon">🛵</span>
+    دليفري + تيك أواي + كاشير
+  </div>
+  <div class="info-item">
+    <span class="info-icon">📞</span>
+    <span dir="ltr" style="display:inline-block;">+20 111 254 77 17</span>
+  </div>
+</div>
+
+<!-- GALLERY -->
+<section class="gallery-section" id="gallery">
+  <p class="sec-label">✦ من قلب المطعم</p>
+  <h2 class="sec-title">الأكل بيتكلم <span>عن نفسه</span></h2>
+  <div class="gallery-grid fade-in">
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=800&q=80&auto=format&fit=crop" loading="eager" crossorigin="anonymous" alt="مشويات جدو الكبيرة">
+      <div class="gallery-item-overlay"></div>
+      <div class="gallery-tag">صينية جدو الكبيرة</div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=500&q=80&auto=format&fit=crop" loading="eager" crossorigin="anonymous" alt="كفتة">
+      <div class="gallery-item-overlay"></div>
+      <div class="gallery-tag">كفتة وسدق</div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1558030006-450675393462?w=500&q=80&auto=format&fit=crop" loading="eager" crossorigin="anonymous" alt="حواوشي">
+      <div class="gallery-item-overlay"></div>
+      <div class="gallery-tag">حواوشي جدو</div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1603360946369-dc9bb6258143?w=500&q=80&auto=format&fit=crop" loading="eager" crossorigin="anonymous" alt="شيش طاووق">
+      <div class="gallery-item-overlay"></div>
+      <div class="gallery-tag">شيش طاووق</div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=500&q=80&auto=format&fit=crop" loading="eager" crossorigin="anonymous" alt="مشكل مشوي">
+      <div class="gallery-item-overlay"></div>
+      <div class="gallery-tag">مشكل مشويات</div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section class="menu-section" id="menu">
+  <p class="sec-label">✦ منيو جدو</p>
+  <h2 class="sec-title">اختار <span>وكل</span></h2>
+  <div class="menu-tabs">
+    <button class="mtab active" onclick="filterMenu('all',this)">الكل</button>
+    <button class="mtab" onclick="filterMenu('grill',this)">مشويات</button>
+    <button class="mtab" onclick="filterMenu('sandwich',this)">ساندوتشات</button>
+    <button class="mtab" onclick="filterMenu('hawawshi',this)">حواوشي</button>
+    <button class="mtab" onclick="filterMenu('sayani',this)">الصواني</button>
+    <button class="mtab" onclick="filterMenu('sides',this)">محاشي وطواجن</button>
+  </div>
+
+  <div class="menu-grid" id="menuGrid">
+
+    <!-- PROMO -->
+    <div class="menu-promo" data-cat="sayani">
+      <div class="promo-text">
+        <div class="menu-card-name">🏆 صينية جدو — الوجبة الملكية</div>
+        <div class="menu-card-desc">٣ كيلو مشاوي + نصف فرخة + رز + محاشي. تكفي من ٦ لـ٧ أفراد. الأكله الأشهر عند جدو والناس بتتكلم عنها!</div>
+      </div>
+      <div class="promo-price">١٧٠٠ جنيه <small>للصينية كاملة</small></div>
+    </div>
+
+    <div class="menu-card" data-cat="grill">
+      <div class="menu-card-body">
+        <div class="menu-card-name">🥩 فرخة مشوية</div>
+        <div class="menu-card-desc">فرخة كاملة على الجمر، بالتتبيلة الخاصة بتاعت جدو</div>
+        <div class="menu-card-footer">
+          <div class="price">ربع: ١١٠ جنيه<br><span class="price-sub">نص: ٢٢٠ | كيلو: ٣٠٠</span></div>
+          <span class="popular-badge">🔥 الأكثر طلباً</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-card" data-cat="grill">
+      <div class="menu-card-body">
+        <div class="menu-card-name">🥩 كفتة</div>
+        <div class="menu-card-desc">كفتة لحمة بلدي طازجة، نكهة أصيلة وجودة عالية</div>
+        <div class="menu-card-footer">
+          <div class="price">ربع: ٨٥ جنيه<br><span class="price-sub">نص: ١٧٠ | كيلو: ٣٤٠</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-card" data-cat="grill">
+      <div class="menu-card-body">
+        <div class="menu-card-name">🥩 سدق</div>
+        <div class="menu-card-desc">من أشهر أطباق جدو — سدق مشوي بطعم لا يُقاوم</div>
+        <div class="menu-card-footer">
+          <div class="price">ربع: ١١٠ جنيه<br><span class="price-sub">نص: ٢٢٠ | كيلو: ٤٤٠</span></div>
+          <span class="popular-badge">⭐ مميز</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-card" data-cat="grill">
+      <div class="menu-card-body">
+        <div class="menu-card-name">🍗 شيش طاووق</div>
+        <div class="menu-card-desc">دجاج متبل على الجمر، هش وطري من الجوا</div>
+        <div class="menu-card-footer">
+          <div class="price">ربع: ١٠٠ جنيه<br><span class="price-sub">نص: ٢٠٠ | كيلو: ٤٠٠</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-card" data-cat="grill">
+      <div class="menu-card-body">
+        <div class="menu-card-name">🥩 لحمة</div>
+        <div class="menu-card-desc">لحمة ضاني طازجة على الفحم، طعم حقيقي</div>
+        <div class="menu-card-footer">
+          <div class="price">ربع: ٢٠٠ جنيه<br><span class="price-sub">نص: ٤٠٠ | كيلو: ٨٠٠</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-card" data-cat="grill">
+      <div class="menu-card-body">
+        <div class="menu-card-name">🔥 مشكل مشويات</div>
+        <div class="menu-card-desc">كفتة + شيش + لحمة — كل الخير في صحن واحد</div>
+        <div class="menu-card-footer">
+          <div class="price">ربع: ٢٠٠ جنيه<br><span class="price-sub">نص: ٤٠٠ | كيلو: ٨٠٠</span></div>
+          <span class="popular-badge">🔥 الأكثر طلباً</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-card" data-cat="sandwich">
+      <div class="menu-card-body">
+        <div class="menu-card-name">🫓 ساندوتش كفتة</div>
+        <div class="menu-card-desc">كفتة مشوية في خبز بلدي طازج مع الصلصة</div>
+        <div class="menu-card-footer">
+          <div class="price">عادي: ٢٥ جنيه<br><span class="price-sub">دبل: ٤٥</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-card" data-cat="sandwich">
+      <div class="menu-card-body">
+        <div class="menu-card-name">🫓 ساندوتش شيش طاووق</div>
+        <div class="menu-card-desc">شيش دجاج مشوي في عيش بلدي بالصوص والخضرة</div>
+        <div class="menu-card-footer">
+          <div class="price">عادي: ٤٠ جنيه<br><span class="price-sub">دبل: ٥٥</span></div>
+          <span class="popular-badge">⭐ مميز</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-card" data-cat="sandwich">
+      <div class="menu-card-body">
+        <div class="menu-card-name">🫓 ساندوتش سدق</div>
+        <div class="menu-card-desc">سدق مشوي في خبز بلدي بالطحينة والطماطم</div>
+        <div class="menu-card-footer">
+          <div class="price">عادي: ٣٥ جنيه<br><span class="price-sub">دبل: ٥٠</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-card" data-cat="hawawshi">
+      <div class="menu-card-body">
+        <div class="menu-card-name">🫓 حواوشي عادي</div>
+        <div class="menu-card-desc">لحمة مفرومة متبلة في عيش بلدي على الفرن</div>
+        <div class="menu-card-footer">
+          <div class="price">٥٠ جنيه</div>
+          <span class="popular-badge">🔥 الأكثر طلباً</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-card" data-cat="hawawshi">
+      <div class="menu-card-body">
+        <div class="menu-card-name">🧀 حواوشي جبنة</div>
+        <div class="menu-card-desc">حواوشي لحمة مع جبنة رومي مشبعة ومقرمشة</div>
+        <div class="menu-card-footer">
+          <div class="price">٦٠ جنيه</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-card" data-cat="sayani">
+      <div class="menu-card-body">
+        <div class="menu-card-name">🫙 صينية الصحاب</div>
+        <div class="menu-card-desc">نص فرخة + كيلو مشاوي متنوعة + رز + محاشي. لـ٤ لـ٥ أفراد</div>
+        <div class="menu-card-footer">
+          <div class="price">١١٠٠ جنيه</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-card" data-cat="sides">
+      <div class="menu-card-body">
+        <div class="menu-card-name">🍇 ورق عنب</div>
+        <div class="menu-card-desc">ورق عنب محشي بالأرز واللحمة</div>
+        <div class="menu-card-footer">
+          <div class="price">ربع: ٧٠ جنيه<br><span class="price-sub">نص: ١٤٠ | كيلو: ٢٨٠</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-card" data-cat="sides">
+      <div class="menu-card-body">
+        <div class="menu-card-name">🦑 ممبار</div>
+        <div class="menu-card-desc">ممبار محشي بالأرز واللحم بالبهارات المصرية</div>
+        <div class="menu-card-footer">
+          <div class="price">ربع: ٧٥ جنيه<br><span class="price-sub">نص: ١٥٠ | كيلو: ٣٠٠</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-card" data-cat="sides">
+      <div class="menu-card-body">
+        <div class="menu-card-name">🍚 طاجن أرز معمر باللحمة</div>
+        <div class="menu-card-desc">أرز معمر باللحمة والبهارات في طاجن فخاري</div>
+        <div class="menu-card-footer">
+          <div class="price">٧٥ جنيه</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews-section" id="reviews">
+  <p class="sec-label">✦ الناس بتقول إيه</p>
+  <h2 class="sec-title">تقييمات <span>حقيقية</span></h2>
+  <div class="reviews-header fade-in">
+    <div class="rating-summary">
+      <div class="big-score">4.1</div>
+      <div class="score-details">
+        <span class="score-stars">★★★★☆</span>
+        <div class="score-total">٢١٧ تقييم على Google</div>
+      </div>
+    </div>
+    <div class="score-bars">
+      <div class="bar-row">
+        <span class="bar-label">5</span>
+        <div class="bar-track"><div class="bar-fill" style="width:55%"></div></div>
+        <span style="font-size:0.75rem;color:var(--text-muted);">55%</span>
+      </div>
+      <div class="bar-row">
+        <span class="bar-label">4</span>
+        <div class="bar-track"><div class="bar-fill" style="width:20%"></div></div>
+        <span style="font-size:0.75rem;color:var(--text-muted);">20%</span>
+      </div>
+      <div class="bar-row">
+        <span class="bar-label">3</span>
+        <div class="bar-track"><div class="bar-fill" style="width:10%"></div></div>
+        <span style="font-size:0.75rem;color:var(--text-muted);">10%</span>
+      </div>
+      <div class="bar-row">
+        <span class="bar-label">2</span>
+        <div class="bar-track"><div class="bar-fill" style="width:5%"></div></div>
+        <span style="font-size:0.75rem;color:var(--text-muted);">5%</span>
+      </div>
+      <div class="bar-row">
+        <span class="bar-label">1</span>
+        <div class="bar-track"><div class="bar-fill" style="width:10%"></div></div>
+        <span style="font-size:0.75rem;color:var(--text-muted);">10%</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="reviews-grid fade-in">
+
+    <div class="review-card">
+      <div class="rev-head">
+        <div class="rev-user">
+          <div class="rev-avatar">ح</div>
+          <div>
+            <div class="rev-name">حنان كمال</div>
+            <div class="rev-meta">منذ ٦ أشهر · مراجعة واحدة</div>
+          </div>
+        </div>
+        <div class="rev-stars">★★★★★</div>
+      </div>
+      <p class="rev-text">الأكل لذيذ وكويس، والخدمة ممتازة جداً. أنصح بيه بشدة!</p>
+      <span class="rev-tag">🍽 الأكل</span>
+    </div>
+
+    <div class="review-card">
+      <div class="rev-head">
+        <div class="rev-user">
+          <div class="rev-avatar">ن</div>
+          <div>
+            <div class="rev-name">نصر الدين الشيء</div>
+            <div class="rev-meta">منذ سنة · ٥ مراجعات · ٤ صور</div>
+          </div>
+        </div>
+        <div class="rev-stars">★★★★★</div>
+      </div>
+      <p class="rev-text">ده فعلاً الطعم الأصيل للحمة البلدي بالطريقة المصرية. توصية عالية جداً!</p>
+      <span class="rev-tag">🥩 لحمة بلدي</span>
+    </div>
+
+    <div class="review-card">
+      <div class="rev-head">
+        <div class="rev-user">
+          <div class="rev-avatar">ع</div>
+          <div>
+            <div class="rev-name">عماد ميج</div>
+            <div class="rev-meta">منذ سنتين · دليل محلي · ٦٩ مراجعة</div>
+          </div>
+        </div>
+        <div class="rev-stars">★★★★☆</div>
+      </div>
+      <p class="rev-text">الأكل لذيذ جداً بس المحل محتاج منطقة جلوس أكبر. بالنسبة للجودة — من الأفضل في الإسكندرية.</p>
+      <span class="rev-tag">🏠 الأجواء</span>
+    </div>
+
+    <div class="review-card" style="border-color: rgba(212,160,23,0.3); background: rgba(92,15,15,0.3);">
+      <div class="rev-head">
+        <div class="rev-user">
+          <div class="rev-avatar" style="background: var(--gold); color: var(--dark);">★</div>
+          <div>
+            <div class="rev-name">تقييم العملاء على Google</div>
+            <div class="rev-meta">تحديثات من الزبائن</div>
+          </div>
+        </div>
+        <div class="rev-stars">★★★★★</div>
+      </div>
+      <p class="rev-text">الاكل و الطعم أكثر من رائع و الضيافه قمه الذوق و الاحترام، انصح به جدا. كل مرة بيكون فى حاجه جديده بطعم أجمد. الفكرة انك تبقي كويس ده حاجه حلوة لكن الأحلى انك تحافظ على مستواك الجامد 👍👍</p>
+      <span class="rev-tag">❤️ زبون دايمي</span>
+    </div>
+
+    <div class="review-card">
+      <div class="rev-head">
+        <div class="rev-user">
+          <div class="rev-avatar">م</div>
+          <div>
+            <div class="rev-name">محمد — زبون</div>
+            <div class="rev-meta">منذ ٣ أشهر</div>
+          </div>
+        </div>
+        <div class="rev-stars">★★★★★</div>
+      </div>
+      <p class="rev-text">الحواوشي والسدق مش موجودين تاني في حتة تانية بنفس الجودة دي. جدو عنده حاجة خاصة في طريقة الشوي.</p>
+      <span class="rev-tag">🫓 حواوشي</span>
+    </div>
+
+    <div class="review-card">
+      <div class="rev-head">
+        <div class="rev-user">
+          <div class="rev-avatar">س</div>
+          <div>
+            <div class="rev-name">سارة — زبونة</div>
+            <div class="rev-meta">منذ شهر</div>
+          </div>
+        </div>
+        <div class="rev-stars">★★★★☆</div>
+      </div>
+      <p class="rev-text">صينية جدو كانت تجربة لا تُنسى. الكمية كبيرة جداً وكلها ولا أحلى. الخدمة كانت سريعة والطلب وصل طازج.</p>
+      <span class="rev-tag">🫙 صينية جدو</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section class="location-section" id="location">
+  <p class="sec-label">✦ فين نلاقيك؟</p>
+  <h2 class="sec-title">الموقع و <span>أوقات العمل</span></h2>
+  <div class="location-grid fade-in">
+    <div class="location-info">
+      <div class="loc-item">
+        <span class="loc-icon">📍</span>
+        <div>
+          <div class="loc-label">العنوان</div>
+          <div class="loc-value">ميدان السيوف، مقابل إشارة المرور<br>السيوف، الإسكندرية 21533<br>كود Google Maps: 6XRR+FR Montaza 1</div>
+        </div>
+      </div>
+      <div class="loc-item">
+        <span class="loc-icon">📞</span>
+        <div>
+          <div class="loc-label">للطلبات والتوصيل</div>
+          <div class="loc-value">
+            <a href="tel:+201112547717" dir="ltr" style="display:inline-block;">+20 111 254 77 17</a><br>
+            <a href="tel:+201289006377" dir="ltr" style="display:inline-block;">+20 128 900 63 77</a><br>
+            <a href="tel:+20352980601" dir="ltr" style="display:inline-block;">+20 3 529 8061</a>
+          </div>
+        </div>
+      </div>
+      <div class="loc-item">
+        <span class="loc-icon">🌐</span>
+        <div>
+          <div class="loc-label">السوشيال ميديا</div>
+          <div class="loc-value">
+            <a href="https://facebook.com/MASHWYAT.GEDO" target="_blank">MASHWYAT.GEDO</a>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top: 1rem;">
+        <div class="sec-label" style="margin-bottom: 1rem;">⏰ مواعيد العمل</div>
+        <table class="hours-table">
+          <tr><td>السبت — الخميس</td><td class="open-badge">١١ ص — ٥ ص (بكره)</td></tr>
+          <tr><td>الجمعة</td><td class="open-badge">١١ ص — ٥ ص (بكره)</td></tr>
+          <tr><td>الحالة دلوقتي</td><td><span style="color: #27AE60; font-weight: 700;">🟢 مفتوح</span></td></tr>
+        </table>
+        <p class="hours-note">⚠️ المواعيد ممكن تتغير في الأيام والأعياد الرسمية.</p>
+      </div>
+    </div>
+    <div class="map-frame">
+      <div class="map-placeholder">
+        <span class="map-pin">📍</span>
+        <p>ميدان السيوف، مقابل إشارة المرور<br>السيوف، الإسكندرية</p>
+        <a href="https://maps.google.com/?q=مشويات+جدو+السيوف+الاسكندرية" target="_blank" class="btn-red map-btn">🗺️ افتح في Google Maps</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <p class="sec-label" style="color: var(--gold-light);">✦ جاهز تطلب؟</p>
+  <h2>اتصل دلوقتي<br><span>والأكل يوصلك طازج</span></h2>
+  <p>دليفري سريع — تيك أواي — أو تعالى على الفرع مباشرة<br>السيوف، الإسكندرية · مفتوح كل يوم من ١١ ص لـ٥ ص</p>
+  <div class="cta-phones">
+    <a href="tel:+201112547717" class="phone-card">
+      <span class="phone-icon">📞</span>
+      <span class="phone-num" dir="ltr">+20 111 254 77 17</span>
+    </a>
+    <a href="tel:+201289006377" class="phone-card">
+      <span class="phone-icon">📞</span>
+      <span class="phone-num" dir="ltr">+20 128 900 63 77</span>
+    </a>
+    <a href="tel:+20352980601" class="phone-card">
+      <span class="phone-icon">☎️</span>
+      <span class="phone-num" dir="ltr">+20 3 529 8061</span>
+    </a>
+  </div>
+  <a href="https://maps.google.com/?q=مشويات+جدو+السيوف+الاسكندرية" target="_blank" class="btn-ghost">📍 اعرف الموقع</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    مشويات جدو
+    <span>أجمد شوي في مصر — الإسكندرية</span>
+  </div>
+  <div class="footer-links">
+    <a href="#gallery">الصور</a>
+    <a href="#menu">المنيو</a>
+    <a href="#reviews">التقييمات</a>
+    <a href="#location">الموقع</a>
+    <a href="https://facebook.com/MASHWYAT.GEDO" target="_blank">فيسبوك</a>
+  </div>
+  <div class="footer-copy">© ٢٠٢٦ مشويات جدو. جميع الحقوق محفوظة.</div>
+</footer>
+
+<script>
+  // Intersection Observer for animations
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+
+  // Menu filter
+  function filterMenu(cat, btn) {
+    document.querySelectorAll('.mtab').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('#menuGrid > *').forEach(card => {
+      if (cat === 'all' || card.dataset.cat === cat) {
+        card.style.display = '';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+</script>
+</body>
+</html>
